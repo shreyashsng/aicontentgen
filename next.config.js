@@ -1,24 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
-  },
-  async headers() {
-    return [
-      {
-        source: '/api/:path*',
-        headers: [
-          { key: 'Access-Control-Allow-Origin', value: '*' },
-          { key: 'Access-Control-Allow-Methods', value: 'GET,POST,PUT,DELETE,OPTIONS' },
-          { key: 'Access-Control-Allow-Headers', value: 'Content-Type' },
-        ],
-      },
-    ]
+  reactStrictMode: true,
+  env: {
+    NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
+    NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    GEMINI_API_KEY: process.env.GEMINI_API_KEY,
   },
 }
 
